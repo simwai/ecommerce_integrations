@@ -28,6 +28,7 @@ class AmazonRepository:
 
 		self.amz_setting = amz_setting
 		self.instance_params = dict(
+			iam_arn=self.amz_setting.iam_arn,
 			client_id=self.amz_setting.client_id,
 			client_secret=self.amz_setting.get_password("client_secret"),
 			refresh_token=self.amz_setting.refresh_token,
@@ -479,6 +480,7 @@ class AmazonRepository:
 
 def validate_amazon_sp_api_credentials(**args) -> None:
 	api = SPAPI(
+		iam_arn=args.get("iam_arn"),
 		client_id=args.get("client_id"),
 		client_secret=args.get("client_secret"),
 		refresh_token=args.get("refresh_token"),
@@ -491,7 +493,7 @@ def validate_amazon_sp_api_credentials(**args) -> None:
 		# validate client_id, client_secret and refresh_token.
 		api.get_access_token()
 
-		# validate aws_access_key, aws_secret_key, and region.
+		# validate aws_access_key, aws_secret_key, region and iam_arn.
 		api.get_auth()
 
 	except SPAPIError as e:

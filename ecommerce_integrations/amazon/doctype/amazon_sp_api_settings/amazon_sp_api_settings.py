@@ -83,6 +83,7 @@ class AmazonSPAPISettings(Document):
 		)
 
 		validate_amazon_sp_api_credentials(
+			iam_arn=self.get("iam_arn"),
 			client_id=self.get("client_id"),
 			client_secret=self.get_password("client_secret"),
 			refresh_token=self.get("refresh_token"),
