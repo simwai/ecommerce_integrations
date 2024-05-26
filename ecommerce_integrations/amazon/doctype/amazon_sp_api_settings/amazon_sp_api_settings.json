@@ -7,7 +7,6 @@
  "field_order": [
   "is_active",
   "section_break_4",
-  "iam_arn",
   "refresh_token",
   "column_break_1",
   "client_id",
@@ -54,13 +53,6 @@
    "fieldname": "section_break_4",
    "fieldtype": "Section Break",
    "label": "Seller Central Credentials"
-  },
-  {
-   "fieldname": "iam_arn",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "IAM ARN",
-   "reqd": 1
   },
   {
    "fieldname": "refresh_token",

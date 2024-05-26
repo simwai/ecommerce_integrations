@@ -217,7 +217,6 @@ class SPAPI(object):
 
 	def __init__(
 		self,
-		iam_arn: str,
 		client_id: str,
 		client_secret: str,
 		refresh_token: str,
@@ -225,7 +224,6 @@ class SPAPI(object):
 		aws_secret_key: str,
 		country_code: str = "US",
 	) -> None:
-		self.iam_arn = iam_arn
 		self.client_id = client_id
 		self.client_secret = client_secret
 		self.refresh_token = refresh_token
@@ -260,7 +258,7 @@ class SPAPI(object):
 				region_name=self.region,
 			)
 
-			response = client.assume_role(RoleArn=self.iam_arn, RoleSessionName="SellingPartnerAPI")
+			response = client.assume_role(RoleSessionName="SellingPartnerAPI")
 
 			credentials = response["Credentials"]
 			access_key_id = credentials["AccessKeyId"]

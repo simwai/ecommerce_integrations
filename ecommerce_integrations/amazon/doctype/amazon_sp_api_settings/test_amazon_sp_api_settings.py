@@ -194,7 +194,6 @@ class TestAmazonSettings:
 			return item_group_name
 
 		self.is_active = 1
-		self.iam_arn = "********************"
 		self.refresh_token = "********************"
 		self.client_id = "********************"
 		self.client_secret = "********************"
@@ -223,7 +222,6 @@ class TestAmazonRepository(AmazonRepository):
 	def __init__(self) -> None:
 		self.amz_setting = TestAmazonSettings()
 		self.instance_params = dict(
-			iam_arn=self.amz_setting.iam_arn,
 			client_id=self.amz_setting.client_id,
 			client_secret=self.amz_setting.client_secret,
 			refresh_token=self.amz_setting.refresh_token,
@@ -265,7 +263,6 @@ class TestAmazon(unittest.TestCase):
 
 	def test_validate_credentials(self):
 		credentials = dict(
-			iam_arn="********************",
 			client_id="********************",
 			client_secret="********************",
 			refresh_token="********************",
